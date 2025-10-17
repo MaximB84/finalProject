@@ -56,7 +56,7 @@ figcaption {
   }
 
   figure {
-    border-radius: 50%; /* Rundes Aussehen */
+    border-radius: 50%; /* Runde Figuren */
   }
 
   /* Das letzte Bild nimmt beide Spalten */
@@ -68,10 +68,10 @@ figcaption {
 /* ========== Desktop View (ab 992px) ========== */
 @media (min-width: 992px) {
   figure {
-    border-radius: 0; /* Keine abgerundeten Ecken mehr */
+    border-radius: 0; /* Keine abgerundeten Ecken */
   }
 
-  /* Jedes 3. Bild nimmt zwei Spalten ein */
+  /* Jedes 3. Bild nimmt zwei Spalten */
   figure:nth-child(3n) {
     grid-column: span 2;
   }
@@ -84,7 +84,7 @@ figcaption {
   }
 }
 
-/* ========== Dark Mode ========== */
+/* ========== Dark Mode (Variante A) ========== */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #121212; /* Dunkler Hintergrund allgemein */
@@ -94,11 +94,11 @@ figcaption {
   figure {
     background-color: #222; /* Dunkler Hintergrund für Figuren */
     color: #f5d742; /* Gelblicher Text */
-    border-color: #000; /* Schwarzer Rahmen */
+    border-color: #f5d742; /* Gelblicher Rahmen */
   }
 
   figcaption {
     background-color: #000; /* Schwarzer Balken unten */
-    color: #f5d742; /* Gelblich-heller Text */
+    color: #f5d742; /* Heller, gelblicher Text */
   }
 }
