@@ -24,8 +24,8 @@ p {
 
 main {
   display: grid;
-  grid-template-columns: 1fr; /* One column for mobile */
-  gap: 10px; /* 10px gap between rows and columns */
+  grid-template-columns: 1fr; /* Eine Spalte auf Mobile */
+  gap: 10px; /* 10px Abstand zwischen Reihen und Spalten */
 }
 
 figure {
@@ -33,11 +33,12 @@ figure {
   border: 2px solid black;
   background-color: white;
   text-align: center;
-  overflow: hidden; /* Needed for circular shapes */
+  overflow: hidden;
 }
 
-img {
+figure img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -48,58 +49,56 @@ figcaption {
   font-weight: bold;
 }
 
-/* ========== Tablet View (min-width: 772px) ========== */
+/* ========== Tablet View (ab 772px) ========== */
 @media (min-width: 772px) {
   main {
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
   }
 
   figure {
-    border-radius: 50%; /* Circular shape */
+    border-radius: 50%; /* Rundes Aussehen */
   }
 
+  /* Das letzte Bild nimmt beide Spalten */
   figure:last-child {
-    grid-column: span 2; /* Last figure spans both columns */
+    grid-column: span 2;
   }
 }
 
-/* ========== Large Screen View (min-width: 992px) ========== */
+/* ========== Desktop View (ab 992px) ========== */
 @media (min-width: 992px) {
-  main {
-    grid-template-columns: 1fr 1fr; /* Two columns stay the same */
-  }
-
   figure {
-    border-radius: 0; /* Remove circular shapes */
+    border-radius: 0; /* Keine abgerundeten Ecken mehr */
   }
 
-  figure:nth-of-type(3n) {
-    grid-column: span 2; /* Every 3rd figure spans both columns */
+  /* Jedes 3. Bild nimmt zwei Spalten ein */
+  figure:nth-child(3n) {
+    grid-column: span 2;
   }
 }
 
 /* ========== Prefers Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto; /* Sanftes Scrollen deaktivieren */
   }
 }
 
-/* ========== Dark Color Scheme ========== */
+/* ========== Dark Mode ========== */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #111;
-    color: #f5e663;
+    background-color: #121212; /* Dunkler Hintergrund allgemein */
+    color: #f5f5f5; /* Heller Text allgemein */
   }
 
   figure {
-    background-color: #333;
-    border: 2px solid black;
+    background-color: #222; /* Dunkler Hintergrund für Figuren */
+    color: #f5d742; /* Gelblicher Text */
+    border-color: #000; /* Schwarzer Rahmen */
   }
 
   figcaption {
-    background-color: #000;
-    color: #f5e663;
+    background-color: #000; /* Schwarzer Balken unten */
+    color: #f5d742; /* Gelblich-heller Text */
   }
 }
